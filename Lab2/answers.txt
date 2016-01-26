@@ -77,7 +77,7 @@ sed 's/[7]/t/g'
 	Command: cat filename | ./script.sh
 
 Step 7:
-* 
+* Command: 
 
 Step 8:
 * Command: grep "[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}" regex_practice_data.txt | wc -l
