@@ -79,4 +79,17 @@ sed 's/[7]/t/g'
 Step 7:
 * 
 
+Step 8:
+* Command: grep "[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}" regex_practice_data.txt | wc -l
+	Output: 770
+* Command: grep "303-441-[0-9]\{4\}" regex_practice_data.txt | wc -l
+	Output: 51
+* Command: grep ".*@.*\.\(com\|net\|edu\|gov\)" regex_practice_data.txt | wc -l
+	Output: 17691
+* Command: grep ".*@.*\.gov" regex_practice_data.txt | wc -l
+	Output: 52
+*	Command: grep "^[a-mA-M]\{1\}[a-zA-Z]\+\.[a-zA-Z]\+@.*\.\(com\|net\|edu\|gov\)" regex_practice_data.txt | wc -l
+	Output: 330
+
+
 
