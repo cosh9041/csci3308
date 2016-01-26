@@ -1,0 +1,37 @@
+STEP 4:
+date: Displays the current date and time.
+ls -ltr: Displays files in current directory, in order oldest to newest (reverse of newest first), with  long listing format (includes file info, permissions, etc.)
+cd ..: Change directory into parent directory
+pwd: Prints current working directory to stdout
+who: Prints info about users which are currently logged in
+whoami: Prints name of current user
+man man: Prints the manual form the `man` command
+env: Prints current env variables. Can also be used to set env vars 
+
+Problem 1: mkdir cs3308 && cd cs3308
+Problem 2: mv cs3308 csci3308; cd
+Problem 3: cp filename copyoffile
+Problem 4: rm copyoffile
+Problem 5: mkdir tmp && rmdir tmp; cat file.txt
+Problem 6: open file.txt
+Problem 7: head file.txt
+Problem 8: tail file.txt
+Problem 9: grep -rn "the" ./*     //NOTE: Will recursively search all files under wd
+Problem 10: find `pwd` -name books.txt
+Problem 11: zip -r dir.zip && unzip dir.zip -d tmp && tar -zcvf dir.tar tmp 
+		&& rm -rf tmp && mkdir tmp && tar -C ./tmp -xvf dir.tar
+Problem 12: touch filename
+
+STEP 5:
+Problem 1: sort passwd.txt //NOTE: I named my file passwd.txt
+Problem 2: sort -n -k 3 -t ":" passwd.txt
+Problem 3: sort -n -k 4 -k 3 -t ":" passwd.txt
+Problem 4: grep -n "Marx" passwd.txt
+Problem 5: wc -l passwd.txt
+Problem 6: wc -l passwd.txt > tmp
+Problem 7: chmod a+x ./getLines.sh  
+					 Running `./getLines.sh` runs the program. This is because global 
+					 executable binaries should be stored under a directory in the PATH
+					 env variable, and this one is not. Other commands:
+					 chmod 777 ./getLines.sh
+

@@ -1,0 +1,82 @@
+Step 2:
+* Cranberry, Nectarine, and Prickly Pear were removed, and Jackfruit was added
+* the '<' character corresponds to a line in the first argument to diff, and 
+	'>' corresponds to a line in the second argument to diff
+* Gives context around diffs
+
+Step 3:
+* 15 lines
+* 692
+
+Step 4:
+* Command: cut -d':' -f1 testPasswd.txt
+	Output: 
+root
+daemon
+sys
+games
+mail
+www-data
+backup
+nobody
+syslog
+whoopsie
+user
+sshd
+ntp
+mysql
+vboxadd
+* Command: cut -d' ' -f2,4 grades.txt 
+	Output:
+LN HW1
+Slaven 1
+Eustathios 1
+Saša 0
+Gerard 1
+Babur 0
+Marin 0
+Marko 1
+
+Step 5:
+* Command: cut -d':' -f4 testPasswd.txt | sort | uniq 
+	Output:
+0
+1
+1000
+1337
+2
+3
+5
+99
+999
+* Command: touch ~/output.txt && cut -d':' -f4 testPasswd.txt | sort | uniq > ~/output.txt 
+* Command: grep "^[mws]" testPasswd.txt | cut -d':' -f1,6 
+	Output:
+sys:/dev
+mail:/var/mail
+www-data:/var/www
+syslog:/home/syslog
+whoopsie:/nonexistent
+sshd:/var/run/sshd
+mysql:/nonexistent
+
+Step 6:
+* Command: sed 's/[a-zA-Z]//g' leetSpeak.txt
+	Output: 0 4 34 4 053 70 473 7 0 4'7 43 17 1
+* Command: sed 's/[0-9]//g' leetSpeak.txt
+	Output: yu cn ld  hr  wr bu yu cn' mk  drnk
+* Command: sed 's/[0-9]/_/g' leetSpeak.txt  
+	Output: y_u c_n l__d _ h_r__ __ w___r bu_ y_u c_n'_ m_k_ __ dr_nk
+* Script: 
+sed 's/[0]/o/g' leetSpeak.txt | sed 's/[1]/i/g'  | 
+sed 's/[3]/e/g'  | sed 's/[4]/a/g'  | sed 's/[5]/s/g'  |
+sed 's/[7]/t/g'
+	Output: you can lead a horse to water but you can't make it drink
+	Alternative Option: Use a regex replacement algorithm
+* Take out the filename arg to sed, and pass in contents of a file to script thusly:
+	Command: cat filename | ./script.sh
+
+Step 7:
+* 
+
+
