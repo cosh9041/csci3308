@@ -1,3 +1,5 @@
+// SOLUTION TO LAB 2 FOR CORWIN SHEAHAN.
+
 Step 2:
 * Cranberry, Nectarine, and Prickly Pear were removed, and Jackfruit was added
 * the '<' character corresponds to a line in the first argument to diff, and 
@@ -77,7 +79,19 @@ sed 's/[7]/t/g'
 	Command: cat filename | ./script.sh
 
 Step 7:
-* Command: 
+* Command: cat grades.txt | awk '{ if (NR != 1) { grade=($3+$4+$5+$6+$7)/5; print $1, $2, grade; }} '
+	Output: 
+Ryan Slaven 0.8
+Jephthah Eustathios 0.4
+Andreas Saša 0.6
+Godofredo Gerard 1
+Edwin Babur 0.8
+Ahmad Marin 0
+Jett Marko 0.8
+* Command:  cat grades.txt | awk 'BEGIN {sum = 0} { if (NR != 1) { sum=sum+$3+$4+$5+$6+$7}} END {print sum/35} '
+	Output: 0.628571
+	
+
 
 Step 8:
 * Command: grep "[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}" regex_practice_data.txt | wc -l
