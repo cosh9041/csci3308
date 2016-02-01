@@ -3,7 +3,7 @@
 
 function usage
 {
-	echo "Usage: grades.sh filename"
+	echo "Usage: grades-awk.sh filename"
 	exit $?
 }
 
