@@ -7,15 +7,6 @@ function usage
 	exit $?
 }
 
-awk '
-BEGIN { print "START" }
-      { print         }
-END   { print "STOP"  }
-'
-
-awk '{print "File\tOwner" } { print "here", "\t"}'
-echo "here"
-
 if [ $# -lt 1 ]; then
 	usage
 else
@@ -26,3 +17,14 @@ else
 	fi
 fi
 
+cat $filename | sort -k 3,3 -k 2,2 -k 1,1 |awk 'BEGIN {}
+{
+	avg[NR]=($4 + $5 + $6)/3;
+	ID[NR]=$1;
+	lastName[NR]=$3;
+	firstName[NR]=$2;
+}
+END {
+	for( n=1; n <= NR; n++ ) 
+		{print avg[n], "["ID[n]"]", lastName[n]", "firstName[n]}
+}' 
