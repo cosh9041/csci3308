@@ -22,7 +22,7 @@ create table if not exists `course` (
   primary key (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=8;
 
-insert into `course` (`id`, `name`, `department_id`) values
+insert into `course` (`id`, `name`, `deptID`) values
   (1, '111', 1),
   (2, '112', 1),
   (3, '250', 1),

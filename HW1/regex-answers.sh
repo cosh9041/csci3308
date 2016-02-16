@@ -36,7 +36,7 @@ cat $filename | egrep '303-[0-9]{3}-[0-9]{4}' | wc -l
 cat $filename | egrep '^[aeiouAEIOU].*[0-9]$' | wc -l
 
 # Number of geocities email addresses
-cat $filename | egrep '.*@geocities\.com' 
+cat $filename | egrep '.*@geocities.com' 
 
 # Number of incorrect email addresses
 #cat $filename | egrep '[^a-zA-Z0-9_\.-].*@.*'
