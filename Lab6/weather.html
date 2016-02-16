@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Hello</title>
+	<script src="http://code.jquery.com/jquery-2.2.0.js"></script>
+  <script>
+    $(document).ready(function() {
+      var url = 'https://api.forecast.io/forecast/f0f877d232f06de608935e7081837a03/40.014984,-105.270546'
+			$.ajax({url:url, dataType:"jsonp"}).then(function(data) {
+				$('#temperature').append(data.currently.temperature)
+				$('#humidity').append(data.currently.humidity)
+				$('#summary').append(data.currently.summary)
+      })
+    })
+  </script>
+</head>
+<body>
+	<p id="temperature">Current temperature is: </p>
+	<p id="humidity">Current humidity is: </p>
+	<p id="summary">Summary is: </p>
+</body>
+</html>
