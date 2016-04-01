@@ -46,7 +46,7 @@ states_caps = {
 #        'SD':{'state':'South Dakota',   'capital':'Pierre'},
 #        'TN':{'state':'Tennessee',      'capital':'Nashville'},
 #        'TX':{'state':'Texas',          'capital':'Austin'},
-#        'UT':{'state':'Utah',           'capital':'Salt Lake City'},
+        'UT':{'state':'Utah',           'capital':'Salt Lake City'},
 #        'VT':{'state':'Vermont',        'capital':'Montpelier'},
 #        'VA':{'state':'Virginia',       'capital':'Richmond'},
 #        'WA':{'state':'Washington',     'capital':'Olympia'},
@@ -56,7 +56,8 @@ states_caps = {
     }
 
 for key in states_caps:
-    request = "http://maps.googleapis.com/maps/api/geocode/json?address={0}".format(states_caps[key]['capital'])
+    # Get latitude and longitude from google maps api
+    request = "http://maps.googleapis.com/maps/api/geocode/json?address={0}".format(states_caps[key]['capital'].replace(" ", ""))
     response = urllib.request.urlopen(request)
     position_data = json.loads(response.read().decode('utf-8'))
     lat = position_data['results'][0]['geometry']['location']['lat']
@@ -64,8 +65,9 @@ for key in states_caps:
     lat_string = str(lat)
     lng_string = str(lng)
     
+    # Get temperature data from dark sky forecast api
     weather_req = "https://api.forecast.io/forecast/f0f877d232f06de608935e7081837a03/{0},{1}".format(lat_string.strip(),lng_string.strip())
     weather_resp = urllib.request.urlopen(weather_req.strip())
     weather = json.loads(weather_resp.read().decode('utf-8'))
     T = weather['currently']['temperature']
-    print(key, 'weather is', T)
+

@@ -90,11 +90,6 @@ content = '''<html>
 # Print svg map
 print(content)
 
-# Run request to get weather data for Boulder
-request = 'https://api.forecast.io/forecast/f0f877d232f06de608935e7081837a03/40.014984,-105.270546'  
-response = urllib.request.urlopen(request)
-weather_data = json.loads(response.readall().decode('utf-8'))
-
 # Get dictionary of state/capital data. Source: https://github.com/tdlm/fun-with-python/blob/master/states_and_capitals.py
 states_caps = {
         'AL':{'state':'Alabama',        'capital':'Montgomery'},
@@ -154,9 +149,11 @@ print('''
 <script>
 $( document ).ready(function() {
 ''')
+
+# Print color-code based on temperature
 for key in states_caps:
     # Get latitude and longitude from google maps api
-    request = "http://maps.googleapis.com/maps/api/geocode/json?address={0}".format(states_caps[key]['capital'])
+    request = "http://maps.googleapis.com/maps/api/geocode/json?address={0}".format(states_caps[key]['capital'].replace(" ", ""))
     response = urllib.request.urlopen(request)
     position_data = json.loads(response.read().decode('utf-8'))
     lat = position_data['results'][0]['geometry']['location']['lat']
